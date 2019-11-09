@@ -31,6 +31,15 @@ public class PlateauTest {
         assertEquals(false,initializeCoordinates.withInBounds(givenCoordinates));
     }
 
+
+    @Test
+    @DisplayName("Should the coordinates be out of the bounds when lower-left coordinates are (4,6) and upper right coordinates are (5,5) ")
+    void shouldTheCoordinatesBeOutOfBoundsWhenYCoordinateIsOutOfBound () {
+        Plateau initializeCoordinates = new Plateau(5, 5);
+        Plateau givenCoordinates = new Plateau(4, 6);
+        assertEquals(false,initializeCoordinates.withInBounds(givenCoordinates));
+    }
+
 }
 
 
