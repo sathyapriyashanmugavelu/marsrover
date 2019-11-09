@@ -19,6 +19,6 @@ public enum Direction {
     private Direction right;
 
     public Direction rotateTo(String instructionChar) {
-        return left;
+        return instructionChar.equals("L") ? left : right;
     }
 }
