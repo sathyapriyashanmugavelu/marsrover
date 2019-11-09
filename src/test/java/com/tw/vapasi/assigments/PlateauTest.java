@@ -56,6 +56,14 @@ public class PlateauTest {
         assertEquals(false,initializeCoordinates.withInBounds(givenCoordinates));
     }
 
+    @Test
+    @DisplayName("Should the coordinates be out of the bounds when x and y coordinates are out of bound")
+    void shouldTheCoordinatesBeOutOfBoundsWhenXAndYCoordinateAreOutOfBound () {
+        Plateau initializeCoordinates = new Plateau(5, 5);
+        Plateau givenCoordinates = new Plateau(7, 9);
+        assertEquals(false,initializeCoordinates.withInBounds(givenCoordinates));
+    }
+
 
     }
 
