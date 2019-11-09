@@ -47,4 +47,14 @@ public class RoverTest {
 
         assertNotEquals(Direction.SOUTH, rover.processInstruction("L"));
     }
+
+    @Test
+    @DisplayName("Should the instruction is to MoveForward (M), then return the same direction ")
+    void shouldTheDirectionBeTheSameWhenM() {
+        Plateau plateau = new Plateau(5, 5);
+        Coordinates startingCoordinates = new Coordinates(2, 2);
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.WEST);
+
+        assertEquals(Direction.WEST, rover.processInstruction("M"));
+    }
 }
