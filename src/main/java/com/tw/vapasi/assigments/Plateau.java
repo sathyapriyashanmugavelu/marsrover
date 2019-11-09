@@ -10,9 +10,9 @@ public class Plateau {
     }
 
     public boolean withInBounds(Plateau plateau){
-        if(plateau.xCoordinate <= this.xCoordinate){
-                return true;
-            }
+        if(plateau.xCoordinate <= this.xCoordinate && plateau.xCoordinate >= 0) {
+            return true;
+        }
             return false;
     }
 
