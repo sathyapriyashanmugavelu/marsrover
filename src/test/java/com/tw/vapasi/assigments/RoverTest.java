@@ -38,5 +38,13 @@ public class RoverTest {
         assertEquals(Direction.EAST, rover.processInstruction("R"));
     }
 
+    @Test
+    @DisplayName("Should the direction not be NORTH, when the direction is EAST and instruction to turn is right ")
+    void shouldTheDirectionNotBeNorthWhenEastRotatesRight() {
+        Plateau plateau = new Plateau(5, 5);
+        Coordinates startingCoordinates = new Coordinates(2, 2);
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.EAST);
 
+        assertNotEquals(Direction.SOUTH, rover.processInstruction("L"));
+    }
 }
