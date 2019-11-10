@@ -13,19 +13,21 @@ public class Coordinates {
         return xCoordinate + " " + yCoordinate;
     }
 
-    public Coordinates finalCoordinate(Direction direction){
-        if(direction == Direction.NORTH){
-             yCoordinate++;
+    public Coordinates finalCoordinate(Direction direction) {
+        if (direction == Direction.NORTH) {
+            yCoordinate++;
         }
-        if(direction == Direction.SOUTH){
+        if (direction == Direction.SOUTH) {
             yCoordinate--;
         }
-        if(direction == Direction.EAST){
+        if (direction == Direction.EAST) {
             xCoordinate++;
         }
+        if (direction == Direction.WEST) {
+            xCoordinate--;
+        }
 
-        Coordinates coordinates=new Coordinates(xCoordinate,yCoordinate);
+        Coordinates coordinates = new Coordinates(xCoordinate, yCoordinate);
         return (coordinates);
-
     }
 }
