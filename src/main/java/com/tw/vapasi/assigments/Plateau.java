@@ -1,20 +1,15 @@
 package com.tw.vapasi.assigments;
 
 public class Plateau {
-    private int xCoordinate;
-    private int yCoordinate;
+    public int xCoordinate;
+    public int yCoordinate;
 
     Plateau(int xCoordinate, int yCoordinate) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
     }
 
-    public boolean withInBounds(Plateau plateau) {
-        if (plateau.xCoordinate <= this.xCoordinate && plateau.xCoordinate >= 0) {
-            if (plateau.yCoordinate <= this.yCoordinate && plateau.yCoordinate >= 0) {
-                return true;
-            }
-        }
-        return false;
+    public boolean areCoordinatesWithInBounds(Coordinates coordinates) {
+        return coordinates.hasCoordinatesWithInBounds(xCoordinate, yCoordinate);
     }
 }

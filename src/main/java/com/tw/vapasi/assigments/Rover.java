@@ -11,24 +11,39 @@ public class Rover {
         this.direction = direction;
     }
 
-    public Direction processInstruction(String instructionString) {
+    public String processInstruction(String instructionString) {
         Direction currentDirection = this.direction;
+        Plateau currentRoverPosition = this.plateau;
         Coordinates positionAfterMove = this.coordinates;
+
+        if (!(plateau.areCoordinatesWithInBounds(positionAfterMove))) {
+            System.out.println("Initial position of Rover out of bounds");
+            return "Initial position of Rover out of bounds";
+        }
+
         for (int i = 0; i < instructionString.length(); i++) {
             if (instructionString.charAt(i) == 'M') {
                 currentDirection = currentDirection;
                 positionAfterMove = positionAfterMove.finalCoordinate(currentDirection);
+                if (!(plateau.areCoordinatesWithInBounds(positionAfterMove))) {
+                    System.out.println("Rover has fallen out of the Plateau");
+                    return "Rover has fallen out of the Plateau";
+                }
             } else {
                 currentDirection = currentDirection.rotateTo(instructionString.charAt(i));
             }
         }
         finalPositionAndDirection(positionAfterMove, currentDirection);
-        return currentDirection;
+        return finalPositionAndDirectionToString();
     }
 
     public void finalPositionAndDirection(Coordinates positionAfterMove, Direction currentDirection) {
         this.coordinates = positionAfterMove;
         this.direction = currentDirection;
+    }
+
+    public Direction finalDirection() {
+        return direction;
     }
 
     public String finalPositionAndDirectionToString() {

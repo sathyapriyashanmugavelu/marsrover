@@ -30,4 +30,14 @@ public class Coordinates {
         Coordinates coordinates = new Coordinates(xCoordinate, yCoordinate);
         return (coordinates);
     }
+
+    public boolean hasCoordinatesWithInBounds(int plateauXCoordinate, int plateauYCoordinate) {
+        if (this.xCoordinate <= plateauXCoordinate && this.xCoordinate >= 0) {
+            if (this.yCoordinate <= plateauYCoordinate && this.yCoordinate >= 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
