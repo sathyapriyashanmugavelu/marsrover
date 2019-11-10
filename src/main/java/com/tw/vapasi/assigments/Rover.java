@@ -17,7 +17,6 @@ public class Rover {
         Coordinates positionAfterMove = this.coordinates;
 
         if (!(plateau.areCoordinatesWithInBounds(positionAfterMove))) {
-            System.out.println("Initial position of Rover out of bounds");
             return "Initial position of Rover out of bounds";
         }
 
@@ -26,7 +25,6 @@ public class Rover {
                 currentDirection = currentDirection;
                 positionAfterMove = positionAfterMove.finalCoordinate(currentDirection);
                 if (!(plateau.areCoordinatesWithInBounds(positionAfterMove))) {
-                    System.out.println("Rover has fallen out of the Plateau");
                     return "Rover has fallen out of the Plateau";
                 }
             } else {

@@ -12,4 +12,8 @@ public class Plateau {
     public boolean areCoordinatesWithInBounds(Coordinates coordinates) {
         return coordinates.hasCoordinatesWithInBounds(xCoordinate, yCoordinate);
     }
+
+    public String plateauToString() {
+        return xCoordinate + " " + yCoordinate;
+    }
 }
