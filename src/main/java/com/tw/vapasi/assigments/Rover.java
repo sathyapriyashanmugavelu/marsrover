@@ -20,16 +20,15 @@ public class Rover {
             return "Initial position of Rover out of bounds";
         }
 
-        for (int i = 0; i < instructionString.length(); i++) {
-            if (instructionString.charAt(i) == 'M') {
-                currentDirection = currentDirection;
+        for (char commandString : instructionString.toCharArray()) {
+            if (commandString == 'M') {
                 positionAfterMove = positionAfterMove.finalCoordinate(currentDirection);
                 if (!(plateau.areCoordinatesWithInBounds(positionAfterMove))) {
                     return "Rover has fallen out of the Plateau";
                 }
-            } else {
-                currentDirection = currentDirection.rotateTo(instructionString.charAt(i));
+                continue;
             }
+            currentDirection = currentDirection.rotateTo(commandString);
         }
         finalPositionAndDirection(positionAfterMove, currentDirection);
         return finalPositionAndDirectionToString();
