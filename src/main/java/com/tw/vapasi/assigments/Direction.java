@@ -1,18 +1,17 @@
 package com.tw.vapasi.assigments;
 
 public enum Direction {
-    NORTH, EAST, SOUTH, WEST;
+    N, E, S, W;
 
     static {
-        NORTH.left = WEST;
-        NORTH.right = EAST;
-        EAST.left = NORTH;
-        EAST.right = SOUTH;
-        SOUTH.left = EAST;
-        SOUTH.right = WEST;
-        WEST.left = SOUTH;
-        WEST.right = NORTH;
-
+        N.left = W;
+        N.right = E;
+        E.left = N;
+        E.right = S;
+        S.left = E;
+        S.right = W;
+        W.left = S;
+        W.right = N;
     }
 
     private Direction left;

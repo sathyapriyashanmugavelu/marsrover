@@ -14,16 +14,16 @@ public class Coordinates {
     }
 
     public Coordinates finalCoordinate(Direction direction) {
-        if (direction == Direction.NORTH) {
+        if (direction == Direction.N) {
             yCoordinate++;
         }
-        if (direction == Direction.SOUTH) {
+        if (direction == Direction.S) {
             yCoordinate--;
         }
-        if (direction == Direction.EAST) {
+        if (direction == Direction.E) {
             xCoordinate++;
         }
-        if (direction == Direction.WEST) {
+        if (direction == Direction.W) {
             xCoordinate--;
         }
 

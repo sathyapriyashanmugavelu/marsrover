@@ -13,13 +13,25 @@ public class Rover {
 
     public Direction processInstruction(String instructionString) {
         Direction currentDirection = this.direction;
+        Coordinates positionAfterMove = this.coordinates;
         for (int i = 0; i < instructionString.length(); i++) {
             if (instructionString.charAt(i) == 'M') {
                 currentDirection = currentDirection;
+                positionAfterMove = positionAfterMove.finalCoordinate(currentDirection);
             } else {
                 currentDirection = currentDirection.rotateTo(instructionString.charAt(i));
             }
         }
+        finalPositionAndDirection(positionAfterMove, currentDirection);
         return currentDirection;
+    }
+
+    public void finalPositionAndDirection(Coordinates positionAfterMove, Direction currentDirection) {
+        this.coordinates = positionAfterMove;
+        this.direction = currentDirection;
+    }
+
+    public String finalPositionAndDirectionToString() {
+        return coordinates.toString() + " " + direction;
     }
 }

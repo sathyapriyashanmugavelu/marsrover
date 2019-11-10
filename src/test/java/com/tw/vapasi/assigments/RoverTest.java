@@ -13,9 +13,8 @@ public class RoverTest {
     void shouldTheDirectionBeWestWhenNorthRotatesLeft() {
         Plateau plateau = new Plateau(5, 5);
         Coordinates startingCoordinates = new Coordinates(3, 4);
-        Rover rover = new Rover(plateau, startingCoordinates, Direction.NORTH);
-
-        assertEquals(Direction.WEST, rover.processInstruction("L"));
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.N);
+        assertEquals(Direction.W, rover.processInstruction("L"));
     }
 
     @Test
@@ -23,9 +22,8 @@ public class RoverTest {
     void shouldTheDirectionNotBeSouthWhenEastRotatesLeft() {
         Plateau plateau = new Plateau(5, 5);
         Coordinates startingCoordinates = new Coordinates(2, 2);
-        Rover rover = new Rover(plateau, startingCoordinates, Direction.EAST);
-
-        assertNotEquals(Direction.SOUTH, rover.processInstruction("L"));
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.E);
+        assertNotEquals(Direction.S, rover.processInstruction("L"));
     }
 
     @Test
@@ -33,9 +31,8 @@ public class RoverTest {
     void shouldTheDirectionBeEastWhenNorthRotatesRight() {
         Plateau plateau = new Plateau(5, 5);
         Coordinates startingCoordinates = new Coordinates(3, 4);
-        Rover rover = new Rover(plateau, startingCoordinates, Direction.NORTH);
-
-        assertEquals(Direction.EAST, rover.processInstruction("R"));
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.N);
+        assertEquals(Direction.E, rover.processInstruction("R"));
     }
 
     @Test
@@ -43,9 +40,8 @@ public class RoverTest {
     void shouldTheDirectionNotBeNorthWhenEastRotatesRight() {
         Plateau plateau = new Plateau(5, 5);
         Coordinates startingCoordinates = new Coordinates(2, 2);
-        Rover rover = new Rover(plateau, startingCoordinates, Direction.EAST);
-
-        assertNotEquals(Direction.SOUTH, rover.processInstruction("L"));
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.E);
+        assertNotEquals(Direction.S, rover.processInstruction("L"));
     }
 
     @Test
@@ -53,9 +49,8 @@ public class RoverTest {
     void shouldTheDirectionBeTheSameWhenM() {
         Plateau plateau = new Plateau(5, 5);
         Coordinates startingCoordinates = new Coordinates(2, 2);
-        Rover rover = new Rover(plateau, startingCoordinates, Direction.EAST);
-
-        assertEquals(Direction.EAST, rover.processInstruction("M"));
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.E);
+        assertEquals(Direction.E, rover.processInstruction("M"));
     }
 
     @Test
@@ -63,8 +58,17 @@ public class RoverTest {
     void shouldTheFinalDirectionBeSouthWhenTheStringIsLML() {
         Plateau plateau = new Plateau(5, 5);
         Coordinates startingCoordinates = new Coordinates(2, 2);
-        Rover rover = new Rover(plateau, startingCoordinates, Direction.NORTH);
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.N);
+        assertEquals(Direction.S, rover.processInstruction("LML"));
+    }
 
-        assertEquals(Direction.SOUTH, rover.processInstruction("LML"));
+    @Test
+    @DisplayName("Should the final direction and coordinates be SOUTH (1 3 N),when the instruction is 'LMLMLMLMM' and the input is (1 2 N)")
+    void shouldTheFinalPositionAndDirectionBeEqual() {
+        Plateau plateau = new Plateau(5, 5);
+        Coordinates startingCoordinates = new Coordinates(1, 2);
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.N);
+        rover.processInstruction("LMLMLMLMM");
+        assertEquals("1 3 N", rover.finalPositionAndDirectionToString());
     }
 }
