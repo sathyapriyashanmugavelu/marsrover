@@ -12,4 +12,22 @@ public class Coordinates {
     public String toString() {
         return xCoordinate + " " + yCoordinate;
     }
+
+    public Coordinates finalCoordinate(Direction direction){
+        if(direction == Direction.NORTH){
+             yCoordinate++;
+        }
+        if(direction == Direction.EAST){
+            xCoordinate++;
+        }
+        if(direction == Direction.SOUTH){
+            yCoordinate--;
+        }
+        if(direction == Direction.WEST){
+            xCoordinate--;
+        }
+        Coordinates coordinates=new Coordinates(xCoordinate,yCoordinate);
+        return (coordinates);
+
+    }
 }
