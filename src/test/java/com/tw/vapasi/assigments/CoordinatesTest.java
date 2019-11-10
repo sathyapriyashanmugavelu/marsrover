@@ -17,9 +17,19 @@ public class CoordinatesTest {
 
     @Test
     @DisplayName("Should the y coordinate decrements by one when the move forward instruction is given and the direction is SOUTH ")
-    void shouldTheYCoordinatesDecrementsWhenMoveForwardDirectionIsSOUTH() {
+    void shouldTheYCoordinateDecrementsWhenMoveForwardDirectionIsSOUTH() {
         Coordinates lowerLeftCoordinates = new Coordinates(3, 4);
         Coordinates newCoordinateAfterMove= lowerLeftCoordinates.finalCoordinate(Direction.SOUTH);
         assertEquals("3 3",newCoordinateAfterMove.toString());
     }
+
+    @Test
+    @DisplayName("Should the x coordinate increment by one when the move forward instruction is given and the direction is EAST ")
+    void shouldTheXCoordinateIncrementsWhenMoveForwardDirectionIsEAST() {
+        Coordinates lowerLeftCoordinates = new Coordinates(3, 4);
+        Coordinates newCoordinateAfterMove= lowerLeftCoordinates.finalCoordinate(Direction.EAST);
+        assertEquals("4 4",newCoordinateAfterMove.toString());
+    }
+
+
 }

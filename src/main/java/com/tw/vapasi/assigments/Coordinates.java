@@ -20,6 +20,9 @@ public class Coordinates {
         if(direction == Direction.SOUTH){
             yCoordinate--;
         }
+        if(direction == Direction.EAST){
+            xCoordinate++;
+        }
 
         Coordinates coordinates=new Coordinates(xCoordinate,yCoordinate);
         return (coordinates);
