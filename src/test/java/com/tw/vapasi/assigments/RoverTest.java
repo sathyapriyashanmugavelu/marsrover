@@ -85,4 +85,13 @@ public class RoverTest {
         Rover rover = new Rover(plateau, startingCoordinates, Direction.N);
         assertEquals("Initial position of Rover out of bounds", rover.processInstruction("LMLMLMLMM"));
     }
+
+    @Test
+    @DisplayName("Should display error message and stop processing the instruction when the rover position is out of bound")
+    void shouldTheRoverCoordinatesOutOfBoundDisplayMessage() {
+        Plateau plateau = new Plateau(5, 5);
+        Coordinates startingCoordinates = new Coordinates(2, 5);
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.N);
+        assertEquals("Rover has fallen out of the Plateau", rover.processInstruction("MM"));
+    }
 }
