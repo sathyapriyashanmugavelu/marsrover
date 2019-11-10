@@ -53,8 +53,18 @@ public class RoverTest {
     void shouldTheDirectionBeTheSameWhenM() {
         Plateau plateau = new Plateau(5, 5);
         Coordinates startingCoordinates = new Coordinates(2, 2);
-        Rover rover = new Rover(plateau, startingCoordinates, Direction.WEST);
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.EAST);
 
-        assertEquals(Direction.WEST, rover.processInstruction("M"));
+        assertEquals(Direction.EAST, rover.processInstruction("M"));
+    }
+
+    @Test
+    @DisplayName("Should the final direction be SOUTH when the instruction is 'LML'")
+    void shouldTheFinalDirectionBeSouthWhenTheStringIsLML() {
+        Plateau plateau = new Plateau(5, 5);
+        Coordinates startingCoordinates = new Coordinates(2, 2);
+        Rover rover = new Rover(plateau, startingCoordinates, Direction.NORTH);
+
+        assertEquals(Direction.SOUTH, rover.processInstruction("LML"));
     }
 }

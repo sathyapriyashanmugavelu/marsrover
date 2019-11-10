@@ -12,8 +12,14 @@ public class Rover {
     }
 
     public Direction processInstruction(String instructionString) {
-        Direction currentDirection = direction.rotateTo(instructionString);
+        Direction currentDirection = this.direction;
+        for (int i = 0; i < instructionString.length(); i++) {
+            if (instructionString.charAt(i) == 'M') {
+                currentDirection = currentDirection;
+            } else {
+                currentDirection = currentDirection.rotateTo(instructionString.charAt(i));
+            }
+        }
         return currentDirection;
     }
-
 }
