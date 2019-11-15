@@ -9,7 +9,8 @@ public class PlateauTest {
     @Test
     @DisplayName("Should the coordinates be with in the bounds when lower-left coordinates are (3,4) and upper right coordinates are (5,5) ")
     void shouldTheCoordinatesBeWithInTheBounds() {
-        Plateau plateauCoordinates = new Plateau(5, 5);
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Plateau plateauCoordinates = new Plateau(initialCoordinates);
         Coordinates coordinates = new Coordinates(3, 4);
         assertEquals(true, plateauCoordinates.areCoordinatesWithInBounds(coordinates));
     }
@@ -17,7 +18,8 @@ public class PlateauTest {
     @Test
     @DisplayName("Should the coordinates be out of the bounds when lower-left coordinates are (6,5) and upper right coordinates are (5,5) ")
     void shouldTheCoordinatesBeOutOfBoundsWhenXCoordinateIsOutOfBound() {
-        Plateau plateauCoordinates = new Plateau(5, 5);
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Plateau plateauCoordinates = new Plateau(initialCoordinates);
         Coordinates coordinates = new Coordinates(6, 5);
         assertEquals(false, plateauCoordinates.areCoordinatesWithInBounds(coordinates));
     }
@@ -25,7 +27,8 @@ public class PlateauTest {
     @Test
     @DisplayName("Should the coordinates be out of the bounds when x coordinate is negative")
     void shouldTheCoordinatesBeOutOfBoundsWhenXCoordinateIsNegative() {
-        Plateau plateauCoordinates = new Plateau(5, 5);
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Plateau plateauCoordinates = new Plateau(initialCoordinates);
         Coordinates coordinates = new Coordinates(-2, 4);
         assertEquals(false, plateauCoordinates.areCoordinatesWithInBounds(coordinates));
     }
@@ -33,7 +36,8 @@ public class PlateauTest {
     @Test
     @DisplayName("Should the coordinates be out of the bounds when lower-left coordinates are (4,6) and upper right coordinates are (5,5) ")
     void shouldTheCoordinatesBeOutOfBoundsWhenYCoordinateIsOutOfBound() {
-        Plateau plateauCoordinates = new Plateau(5, 5);
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Plateau plateauCoordinates = new Plateau(initialCoordinates);
         Coordinates coordinates = new Coordinates(4, 6);
         assertEquals(false, plateauCoordinates.areCoordinatesWithInBounds(coordinates));
     }
@@ -41,7 +45,8 @@ public class PlateauTest {
     @Test
     @DisplayName("Should the coordinates be out of the bounds when y coordinate is negative")
     void shouldTheCoordinatesBeOutOfBoundsWhenYCoordinateIsNegative() {
-        Plateau plateauCoordinates = new Plateau(5, 5);
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Plateau plateauCoordinates = new Plateau(initialCoordinates);
         Coordinates coordinates = new Coordinates(4, -4);
         assertEquals(false, plateauCoordinates.areCoordinatesWithInBounds(coordinates));
     }
@@ -49,7 +54,8 @@ public class PlateauTest {
     @Test
     @DisplayName("Should the coordinates be out of the bounds when x and y coordinates are negative")
     void shouldTheCoordinatesBeOutOfBoundsWhenXAndYCoordinateAreNegative() {
-        Plateau plateauCoordinates = new Plateau(5, 5);
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Plateau plateauCoordinates = new Plateau(initialCoordinates);
         Coordinates coordinates = new Coordinates(-4, -4);
         assertEquals(false, plateauCoordinates.areCoordinatesWithInBounds(coordinates));
     }
@@ -57,7 +63,8 @@ public class PlateauTest {
     @Test
     @DisplayName("Should the coordinates be out of the bounds when x and y coordinates are out of bound")
     void shouldTheCoordinatesBeOutOfBoundsWhenXAndYCoordinateAreOutOfBound() {
-        Plateau plateauCoordinates = new Plateau(5, 5);
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Plateau plateauCoordinates = new Plateau(initialCoordinates);
         Coordinates coordinates = new Coordinates(6, 6);
         assertEquals(false, plateauCoordinates.areCoordinatesWithInBounds(coordinates));
     }

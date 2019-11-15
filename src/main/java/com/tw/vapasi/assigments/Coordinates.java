@@ -1,8 +1,8 @@
 package com.tw.vapasi.assigments;
 
 public class Coordinates {
-    private int xCoordinate;
-    private int yCoordinate;
+    public int xCoordinate;
+    public int yCoordinate;
 
     Coordinates(int xCoordinate, int yCoordinate) {
         this.xCoordinate = xCoordinate;
@@ -14,26 +14,29 @@ public class Coordinates {
     }
 
     public Coordinates finalCoordinate(Direction direction) {
+        int newXCoordinate = this.xCoordinate;
+        int newYCoordinate = this.yCoordinate;
+
         if (direction == Direction.N) {
-            yCoordinate++;
+            newYCoordinate++;
         }
         if (direction == Direction.S) {
-            yCoordinate--;
+            newYCoordinate--;
         }
         if (direction == Direction.E) {
-            xCoordinate++;
+            newXCoordinate++;
         }
         if (direction == Direction.W) {
-            xCoordinate--;
+            newXCoordinate--;
         }
 
-        Coordinates coordinates = new Coordinates(xCoordinate, yCoordinate);
-        return (coordinates);
+        Coordinates coordinates = new Coordinates(newXCoordinate, newYCoordinate);
+        return coordinates;
     }
 
-    public boolean hasCoordinatesWithInBounds(int plateauXCoordinate, int plateauYCoordinate) {
-        if (this.xCoordinate <= plateauXCoordinate && this.xCoordinate >= 0) {
-            if (this.yCoordinate <= plateauYCoordinate && this.yCoordinate >= 0) {
+    public boolean hasCoordinatesWithinBounds(Coordinates plateauCoordinate) {
+        if (this.xCoordinate <= plateauCoordinate.xCoordinate && this.xCoordinate >= 0) {
+            if (this.yCoordinate <= plateauCoordinate.yCoordinate && this.yCoordinate >= 0) {
                 return true;
             }
         }

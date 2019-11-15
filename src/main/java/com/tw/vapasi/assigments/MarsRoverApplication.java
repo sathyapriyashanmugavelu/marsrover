@@ -1,9 +1,10 @@
 package com.tw.vapasi.assigments;
 
-public class MarsRover {
+public class MarsRoverApplication {
     public static void main(String[] args) {
         //Sample input given
-        Plateau plateau = new Plateau(5, 5);
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Plateau plateau = new Plateau(initialCoordinates);
         Coordinates startingCoordinates = new Coordinates(3, 3);
         Rover rover = new Rover(plateau, startingCoordinates, Direction.E);
         System.out.println("-----Input-----");
@@ -15,7 +16,8 @@ public class MarsRover {
 
 
         //Sample input given
-        plateau = new Plateau(5, 5);
+        initialCoordinates = new Coordinates(5, 5);
+        plateau = new Plateau(initialCoordinates);
         startingCoordinates = new Coordinates(1, 2);
         rover = new Rover(plateau, startingCoordinates, Direction.N);
         System.out.println("-----Input-----");
@@ -26,7 +28,8 @@ public class MarsRover {
         System.out.println(rover.processInstruction("LMLMLMLMM"));
 
         //Initial position of rover out of bound
-        plateau = new Plateau(5, 5);
+        initialCoordinates = new Coordinates(5, 5);
+        plateau = new Plateau(initialCoordinates);
         startingCoordinates = new Coordinates(-1, 2);
         rover = new Rover(plateau, startingCoordinates, Direction.N);
         System.out.println("-----Input-----");
@@ -37,7 +40,8 @@ public class MarsRover {
         System.out.println(rover.processInstruction("LMLMLMLMM"));
 
         //For the given string instruction rover has fallen out of the plateau
-        plateau = new Plateau(5, 5);
+        initialCoordinates = new Coordinates(5, 5);
+        plateau = new Plateau(initialCoordinates);
         startingCoordinates = new Coordinates(4, 4);
         rover = new Rover(plateau, startingCoordinates, Direction.N);
         System.out.println("-----Input-----");

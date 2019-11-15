@@ -9,37 +9,33 @@ public class Rover {
         this.plateau = plateau;
         this.coordinates = coordinates;
         this.direction = direction;
+        //TODO move as exception for initial condition
+/*
+        if (!(plateau.areCoordinatesWithInBounds(currentCoordinates))) {
+            return "Initial position of Rover out of bounds";
+        }
+*/
     }
 
     public String processInstruction(String instructionString) {
-        Direction currentDirection = this.direction;
-        Plateau currentRoverPosition = this.plateau;
-        Coordinates positionAfterMove = this.coordinates;
-
-        if (!(plateau.areCoordinatesWithInBounds(positionAfterMove))) {
-            return "Initial position of Rover out of bounds";
-        }
 
         for (char commandString : instructionString.toCharArray()) {
             if (commandString == 'M') {
-                positionAfterMove = positionAfterMove.finalCoordinate(currentDirection);
-                if (!(plateau.areCoordinatesWithInBounds(positionAfterMove))) {
+                Coordinates newCoordinates = this.coordinates.finalCoordinate(this.direction);
+                if (!(plateau.areCoordinatesWithInBounds(newCoordinates))) {
                     return "Rover has fallen out of the Plateau";
                 }
+                this.coordinates = newCoordinates;
                 continue;
             }
-            currentDirection = currentDirection.rotateTo(commandString);
+            this.direction = this.direction.rotateTo(commandString);
         }
-        finalPositionAndDirection(positionAfterMove, currentDirection);
         return finalPositionAndDirectionToString();
     }
 
-    public void finalPositionAndDirection(Coordinates positionAfterMove, Direction currentDirection) {
-        this.coordinates = positionAfterMove;
-        this.direction = currentDirection;
-    }
 
-    public Direction finalDirection() {
+
+    public Direction direction() {
         return direction;
     }
 

@@ -1,19 +1,17 @@
 package com.tw.vapasi.assigments;
 
 public class Plateau {
-    public int xCoordinate;
-    public int yCoordinate;
+    public final Coordinates plateauCoordinates;
 
-    Plateau(int xCoordinate, int yCoordinate) {
-        this.xCoordinate = xCoordinate;
-        this.yCoordinate = yCoordinate;
+    Plateau(Coordinates plateauCoordinates) {
+        this.plateauCoordinates = plateauCoordinates;
     }
 
     public boolean areCoordinatesWithInBounds(Coordinates coordinates) {
-        return coordinates.hasCoordinatesWithInBounds(xCoordinate, yCoordinate);
+        return coordinates.hasCoordinatesWithinBounds(plateauCoordinates);
     }
 
     public String plateauToString() {
-        return xCoordinate + " " + yCoordinate;
+        return plateauCoordinates.xCoordinate + " " + plateauCoordinates.yCoordinate;
     }
 }
