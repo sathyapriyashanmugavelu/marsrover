@@ -68,7 +68,6 @@ public class PlateauTest {
         Coordinates coordinates = new Coordinates(6, 6);
         assertEquals(false, plateauCoordinates.areCoordinatesWithInBounds(coordinates));
     }
-
 }
 
 

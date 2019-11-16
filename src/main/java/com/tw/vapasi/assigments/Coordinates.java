@@ -16,25 +16,25 @@ public class Coordinates {
     public Coordinates finalCoordinate(Direction direction) {
         int newXCoordinate = this.xCoordinate;
         int newYCoordinate = this.yCoordinate;
+        Coordinates coordinates;
 
         if (direction == Direction.N) {
-            newYCoordinate++;
+            new Coordinates(newXCoordinate, newYCoordinate++);
         }
         if (direction == Direction.S) {
-            newYCoordinate--;
+            new Coordinates(newXCoordinate, newYCoordinate--);
         }
         if (direction == Direction.E) {
-            newXCoordinate++;
+            new Coordinates(newXCoordinate++, newYCoordinate);
         }
         if (direction == Direction.W) {
-            newXCoordinate--;
+            new Coordinates(newXCoordinate--, newYCoordinate);
         }
-
-        Coordinates coordinates = new Coordinates(newXCoordinate, newYCoordinate);
+        coordinates = new Coordinates(newXCoordinate, newYCoordinate);
         return coordinates;
     }
 
-    public boolean hasCoordinatesWithinBounds(Coordinates plateauCoordinate) {
+    public boolean isCoordinatesWithinBounds(Coordinates plateauCoordinate) {
         if (this.xCoordinate <= plateauCoordinate.xCoordinate && this.xCoordinate >= 0) {
             if (this.yCoordinate <= plateauCoordinate.yCoordinate && this.yCoordinate >= 0) {
                 return true;
@@ -42,5 +42,4 @@ public class Coordinates {
         }
         return false;
     }
-
 }

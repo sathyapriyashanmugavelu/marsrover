@@ -8,7 +8,7 @@ public class Plateau {
     }
 
     public boolean areCoordinatesWithInBounds(Coordinates coordinates) {
-        return coordinates.hasCoordinatesWithinBounds(plateauCoordinates);
+        return coordinates.isCoordinatesWithinBounds(plateauCoordinates);
     }
 
     public String plateauToString() {

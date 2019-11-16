@@ -5,35 +5,41 @@ public class Rover {
     private Coordinates coordinates;
     private Direction direction;
 
-    public Rover(Plateau plateau, Coordinates coordinates, Direction direction) {
+    public Rover() {
+    }
+
+    public Rover(Plateau plateau, Coordinates coordinates, Direction direction) throws RoverNotDeployedInPlateauException {
         this.plateau = plateau;
         this.coordinates = coordinates;
         this.direction = direction;
-        //TODO move as exception for initial condition
-/*
-        if (!(plateau.areCoordinatesWithInBounds(currentCoordinates))) {
-            return "Initial position of Rover out of bounds";
+
+        if (!(plateau.areCoordinatesWithInBounds(coordinates))) {
+            throw new RoverNotDeployedInPlateauException();
         }
-*/
     }
 
-    public String processInstruction(String instructionString) {
-
+    public String processInstruction(String instructionString) throws RoverOutOfBoundException {
         for (char commandString : instructionString.toCharArray()) {
             if (commandString == 'M') {
-                Coordinates newCoordinates = this.coordinates.finalCoordinate(this.direction);
-                if (!(plateau.areCoordinatesWithInBounds(newCoordinates))) {
-                    return "Rover has fallen out of the Plateau";
-                }
-                this.coordinates = newCoordinates;
+                move();
                 continue;
             }
-            this.direction = this.direction.rotateTo(commandString);
+            rotateRover(commandString);
         }
         return finalPositionAndDirectionToString();
     }
 
+    public void move() throws RoverOutOfBoundException {
+        Coordinates newCoordinates = this.coordinates.finalCoordinate(this.direction);
+        if (!(plateau.areCoordinatesWithInBounds(newCoordinates))) {
+            throw new RoverOutOfBoundException();
+        }
+        this.coordinates = newCoordinates;
+    }
 
+    public void rotateRover(char rotateString) {
+        this.direction = this.direction.rotateTo(rotateString);
+    }
 
     public Direction direction() {
         return direction;
