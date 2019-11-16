@@ -19,20 +19,20 @@ public enum Direction {
 
     private Direction left;
     private Direction right;
-    private final int stepOnXAxis;
-    private final int stepOnYAxis;
+    private final int stepValueOnXAxis;
+    private final int stepValueOnYAxis;
 
-    Direction(final int stepOnXAxis, final int stepOnYAxis) {
-        this.stepOnXAxis = stepOnXAxis;
-        this.stepOnYAxis = stepOnYAxis;
+    Direction(final int stepValueOnXAxis, final int stepValueOnYAxis) {
+        this.stepValueOnXAxis = stepValueOnXAxis;
+        this.stepValueOnYAxis = stepValueOnYAxis;
     }
 
-    public int stepForXAxis() {
-        return this.stepOnXAxis;
+    public int stepValueForXAxis() {
+        return this.stepValueOnXAxis;
     }
 
-    public int stepForYAxis() {
-        return this.stepOnYAxis;
+    public int stepValueForYAxis() {
+        return this.stepValueOnYAxis;
     }
 
     public Direction rotateTo(char instructionChar) {

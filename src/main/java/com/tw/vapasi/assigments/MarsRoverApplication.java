@@ -12,7 +12,8 @@ public class MarsRoverApplication {
         System.out.println("Lower Left Coordinate of the Rover : " + rover.finalPositionAndDirectionToString());
         System.out.println("String instruction : " + "MMRMMRMRRM");
         System.out.println("-----Output-----");
-        System.out.println(rover.processInstruction(""));
+        rover.processInstruction("");
+        System.out.println(rover.finalPositionAndDirectionToString());
 
 
         //Sample input given
@@ -25,6 +26,7 @@ public class MarsRoverApplication {
         System.out.println("Lower Left Coordinate of the Rover : " + rover.finalPositionAndDirectionToString());
         System.out.println("String instruction : " + "LMLMLMLMM");
         System.out.println("-----Output-----");
-        System.out.println(rover.processInstruction("LMLMLMLMM"));
+        rover.processInstruction("LMLMLMLMM");
+        System.out.println(rover.finalPositionAndDirectionToString());
     }
 }

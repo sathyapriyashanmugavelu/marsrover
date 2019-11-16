@@ -15,7 +15,7 @@ public class Rover {
         }
     }
 
-    public String processInstruction(String instructionString) throws RoverOutOfBoundException {
+    public void processInstruction(String instructionString) throws RoverOutOfBoundException {
         for (char commandString : instructionString.toCharArray()) {
             if (commandString == 'M') {
                 move();
@@ -23,11 +23,10 @@ public class Rover {
             }
             rotateRover(commandString);
         }
-        return finalPositionAndDirectionToString();
     }
 
     public void move() throws RoverOutOfBoundException {
-        Coordinates newCoordinates = coordinates.newCoordinatesForStepValue(direction.stepForXAxis(), direction.stepForYAxis());
+        Coordinates newCoordinates = coordinates.newCoordinatesForStepValue(direction.stepValueForXAxis(), direction.stepValueForYAxis());
         if (!(plateau.areCoordinatesWithInBounds(newCoordinates))) {
             throw new RoverOutOfBoundException();
         }
