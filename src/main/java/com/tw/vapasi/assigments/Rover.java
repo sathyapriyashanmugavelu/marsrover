@@ -5,9 +5,6 @@ public class Rover {
     private Coordinates coordinates;
     private Direction direction;
 
-    public Rover() {
-    }
-
     public Rover(Plateau plateau, Coordinates coordinates, Direction direction) throws RoverNotDeployedInPlateauException {
         this.plateau = plateau;
         this.coordinates = coordinates;
@@ -30,7 +27,7 @@ public class Rover {
     }
 
     public void move() throws RoverOutOfBoundException {
-        Coordinates newCoordinates=coordinates.newCoordinatesForStepSize(direction.stepForXAxis(), direction.stepForYAxis());
+        Coordinates newCoordinates = coordinates.newCoordinatesForStepValue(direction.stepForXAxis(), direction.stepForYAxis());
         if (!(plateau.areCoordinatesWithInBounds(newCoordinates))) {
             throw new RoverOutOfBoundException();
         }

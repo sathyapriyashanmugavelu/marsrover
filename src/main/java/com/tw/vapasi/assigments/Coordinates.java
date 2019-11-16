@@ -13,7 +13,7 @@ public class Coordinates {
         return xCoordinate + " " + yCoordinate;
     }
 
-    public Coordinates newCoordinatesForStepSize(final int xCoordinateStepValue, final int yCoordinateStepValue) {
+    public Coordinates newCoordinatesForStepValue(final int xCoordinateStepValue, final int yCoordinateStepValue) {
         return new Coordinates(xCoordinate+xCoordinateStepValue, yCoordinate+yCoordinateStepValue);
     }
 
