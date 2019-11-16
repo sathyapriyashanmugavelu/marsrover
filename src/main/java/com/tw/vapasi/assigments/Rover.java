@@ -30,7 +30,7 @@ public class Rover {
     }
 
     public void move() throws RoverOutOfBoundException {
-        Coordinates newCoordinates = this.coordinates.finalCoordinate(this.direction);
+        Coordinates newCoordinates=coordinates.newCoordinatesForStepSize(direction.stepForXAxis(), direction.stepForYAxis());
         if (!(plateau.areCoordinatesWithInBounds(newCoordinates))) {
             throw new RoverOutOfBoundException();
         }

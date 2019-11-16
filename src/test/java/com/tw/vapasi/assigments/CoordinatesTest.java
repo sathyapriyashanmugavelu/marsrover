@@ -6,36 +6,69 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CoordinatesTest {
+
     @Test
-    @DisplayName("Should the y coordinate increment by one,when the move forward direction is NORTH")
-    void shouldTheYCoordinateIncrementWhenMoveForwardNorth() throws RoverOutOfBoundException {
-        Coordinates lowerLeftCoordinates = new Coordinates(3, 3);
-        Coordinates coordinatesAfterMove = lowerLeftCoordinates.finalCoordinate(Direction.N);
-        assertEquals("3 4", coordinatesAfterMove.toString());
+    @DisplayName("XCoordinate value should be incremented by one")
+    public void shouldXCoordinatedBeIncremented() {
+        Coordinates InitialCoordinates = new Coordinates(2,3);
+        InitialCoordinates = InitialCoordinates.newCoordinatesForStepSize(1, 0);
+        assertEquals("3 3", InitialCoordinates.toString());
     }
 
     @Test
-    @DisplayName("Should the y coordinate decrements by one when the move forward instruction is given and the direction is SOUTH ")
-    void shouldTheYCoordinateDecrementsWhenMoveForwardDirectionIsSOUTH() throws RoverOutOfBoundException {
-        Coordinates lowerLeftCoordinates = new Coordinates(3, 4);
-        Coordinates newCoordinateAfterMove = lowerLeftCoordinates.finalCoordinate(Direction.S);
-        assertEquals("3 3", newCoordinateAfterMove.toString());
+    @DisplayName("XCoordinate value should be decremented by one")
+    public void shouldXCoordinatedBeDecremented() {
+        Coordinates InitialCoordinates = new Coordinates(2,3);
+        InitialCoordinates = InitialCoordinates.newCoordinatesForStepSize(-1, 0);
+        assertEquals("1 3", InitialCoordinates.toString());
     }
 
     @Test
-    @DisplayName("Should the x coordinate increment by one when the move forward instruction is given and the direction is EAST ")
-    void shouldTheXCoordinateIncrementsWhenMoveForwardDirectionIsEAST() throws RoverOutOfBoundException {
-        Coordinates lowerLeftCoordinates = new Coordinates(3, 4);
-        Coordinates newCoordinateAfterMove = lowerLeftCoordinates.finalCoordinate(Direction.E);
-        assertEquals("4 4", newCoordinateAfterMove.toString());
+    @DisplayName("YCoordinate value should be incremented by one")
+    public void shouldYCoordinatedBeIncremented() {
+        Coordinates InitialCoordinates = new Coordinates(2,3);
+        InitialCoordinates = InitialCoordinates.newCoordinatesForStepSize(0, 1);
+        assertEquals("2 4", InitialCoordinates.toString());
     }
 
     @Test
-    @DisplayName("Should the x coordinate decrement by one when the move forward instruction is given and the direction is WEST ")
-    void shouldTheXCoordinateDecrementsWhenMoveForwardDirectionIsEAST() throws RoverOutOfBoundException {
-        Coordinates lowerLeftCoordinates = new Coordinates(3, 4);
-        Coordinates newCoordinateAfterMove = lowerLeftCoordinates.finalCoordinate(Direction.W);
-        assertEquals("2 4", newCoordinateAfterMove.toString());
+    @DisplayName("YCoordinate value should be decremented by one")
+    public void shouldYCoordinatedBeDecremented() {
+        Coordinates InitialCoordinates = new Coordinates(2,3);
+        InitialCoordinates = InitialCoordinates.newCoordinatesForStepSize(0, -1);
+        assertEquals("2 2", InitialCoordinates.toString());
+    }
+
+    @Test
+    @DisplayName("Should the coordinates be out of the bounds when x coordinates is negative")
+    void shouldTheCoordinatesBeOutOfBoundsWhenXCoordinateIsNegative() {
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Coordinates coordinates = new Coordinates(-4, 3);
+        assertEquals(false, coordinates.isCoordinatesWithinBounds(initialCoordinates));
+    }
+
+    @Test
+    @DisplayName("Should the coordinates be out of the bounds when xCoordinate is greater than initial xCoordinate")
+    void shouldTheCoordinatesBeOutOfBoundsWhenXCoordinateOutOfBound() {
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Coordinates coordinates = new Coordinates(6, 4);
+        assertEquals(false, coordinates.isCoordinatesWithinBounds(initialCoordinates));
+    }
+
+    @Test
+    @DisplayName("Should the coordinates be out of the bounds when y coordinates is negative")
+    void shouldTheCoordinatesBeOutOfBoundsWhenYCoordinateIsNegative() {
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Coordinates coordinates = new Coordinates(2, -4);
+        assertEquals(false, coordinates.isCoordinatesWithinBounds(initialCoordinates));
+    }
+
+    @Test
+    @DisplayName("Should the coordinates be out of the bounds when yCoordinate is greater than initial xCoordinate")
+    void shouldTheCoordinatesBeOutOfBoundsWhenYCoordinateOutOfBound() {
+        Coordinates initialCoordinates = new Coordinates(5, 5);
+        Coordinates coordinates = new Coordinates(2, 9);
+        assertEquals(false, coordinates.isCoordinatesWithinBounds(initialCoordinates));
     }
 
     @Test

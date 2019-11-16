@@ -13,25 +13,8 @@ public class Coordinates {
         return xCoordinate + " " + yCoordinate;
     }
 
-    public Coordinates finalCoordinate(Direction direction) {
-        int newXCoordinate = this.xCoordinate;
-        int newYCoordinate = this.yCoordinate;
-        Coordinates coordinates;
-
-        if (direction == Direction.N) {
-            new Coordinates(newXCoordinate, newYCoordinate++);
-        }
-        if (direction == Direction.S) {
-            new Coordinates(newXCoordinate, newYCoordinate--);
-        }
-        if (direction == Direction.E) {
-            new Coordinates(newXCoordinate++, newYCoordinate);
-        }
-        if (direction == Direction.W) {
-            new Coordinates(newXCoordinate--, newYCoordinate);
-        }
-        coordinates = new Coordinates(newXCoordinate, newYCoordinate);
-        return coordinates;
+    public Coordinates newCoordinatesForStepSize(final int xCoordinateStepValue, final int yCoordinateStepValue) {
+        return new Coordinates(xCoordinate+xCoordinateStepValue, yCoordinate+yCoordinateStepValue);
     }
 
     public boolean isCoordinatesWithinBounds(Coordinates plateauCoordinate) {
