@@ -1,24 +1,54 @@
 package com.tw.vapasi.assigments;
 
 public enum Direction {
-    N(0, 1),
-    E(1, 0),
-    S(0, -1),
-    W(-1, 0);
+    N(0, 1) {
+        @Override
+        public Direction right() {
+            return E;
+        }
 
-    static {
-        N.left = W;
-        N.right = E;
-        E.left = N;
-        E.right = S;
-        S.left = E;
-        S.right = W;
-        W.left = S;
-        W.right = N;
-    }
+        @Override
+        public Direction left() {
+            return W;
+        }
+    },
+    E(1, 0) {
+        @Override
+        public Direction right() {
+            return S;
+        }
 
-    private Direction left;
-    private Direction right;
+        @Override
+        public Direction left() {
+            return N;
+        }
+    },
+    S(0, -1) {
+        @Override
+        public Direction right() {
+            return W;
+        }
+
+        @Override
+        public Direction left() {
+            return E;
+        }
+    },
+    W(-1, 0) {
+        @Override
+        public Direction right() {
+            return N;
+        }
+
+        @Override
+        public Direction left() {
+            return S;
+        }
+    };
+
+    public abstract Direction right();
+    public abstract Direction left();
+
     private final int stepValueOnXAxis;
     private final int stepValueOnYAxis;
 
@@ -30,12 +60,8 @@ public enum Direction {
     public int stepValueForXAxis() {
         return this.stepValueOnXAxis;
     }
-
     public int stepValueForYAxis() {
         return this.stepValueOnYAxis;
     }
 
-    public Direction rotateTo(char instructionChar) {
-        return instructionChar == 'L' ? left : right;
-    }
 }

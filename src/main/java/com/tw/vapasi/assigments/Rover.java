@@ -1,5 +1,7 @@
 package com.tw.vapasi.assigments;
 
+import java.util.List;
+
 public class Rover {
     private Plateau plateau;
     private Coordinates coordinates;
@@ -16,26 +18,27 @@ public class Rover {
     }
 
     public void processInstruction(String instructionString) throws RoverOutOfBoundException {
-        for (char commandString : instructionString.toCharArray()) {
-            if (commandString == 'M') {
-                move();
-                continue;
-            }
-            rotateRover(commandString);
+        List<ICommand> roverCommands = new CommandParser(instructionString).toCommands();
+        for(ICommand command: roverCommands){
+            command.execute(this);
         }
     }
 
     public void move() throws RoverOutOfBoundException {
-        Coordinates newCoordinates = coordinates.newCoordinatesForStepValue(direction.stepValueForXAxis(), direction.stepValueForYAxis());
-        if (!(plateau.areCoordinatesWithInBounds(newCoordinates))) {
+        this.coordinates = coordinates.newCoordinatesForStepValue(direction.stepValueForXAxis(), direction.stepValueForYAxis());
+        if (!(plateau.areCoordinatesWithInBounds(this.coordinates))) {
             throw new RoverOutOfBoundException();
         }
-        this.coordinates = newCoordinates;
     }
 
-    public void rotateRover(char rotateString) {
-        this.direction = this.direction.rotateTo(rotateString);
+    public void rotateLeft() {
+        this.direction=this.direction.left();
     }
+
+    public void rotateRight() {
+        this.direction=this.direction.right();
+    }
+
 
     public Direction direction() {
         return direction;
@@ -44,4 +47,6 @@ public class Rover {
     public String finalPositionAndDirectionToString() {
         return coordinates.toString() + " " + direction;
     }
+
+
 }

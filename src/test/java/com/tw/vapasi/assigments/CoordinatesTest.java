@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CoordinatesTest {
-
     @Test
     @DisplayName("XCoordinate value should be incremented by one")
     public void shouldXCoordinatedBeIncremented() {
