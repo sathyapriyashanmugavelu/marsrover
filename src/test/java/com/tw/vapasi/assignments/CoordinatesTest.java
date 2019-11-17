@@ -9,7 +9,7 @@ public class CoordinatesTest {
     @Test
     @DisplayName("XCoordinate value should be incremented by one")
     public void shouldXCoordinatedBeIncremented() {
-        Coordinates InitialCoordinates = new Coordinates(2,3);
+        Coordinates InitialCoordinates = new Coordinates(2, 3);
         InitialCoordinates = InitialCoordinates.newCoordinatesForStepValue(1, 0);
         assertEquals("3 3", InitialCoordinates.toString());
     }
@@ -17,7 +17,7 @@ public class CoordinatesTest {
     @Test
     @DisplayName("XCoordinate value should be decremented by one")
     public void shouldXCoordinatedBeDecremented() {
-        Coordinates InitialCoordinates = new Coordinates(2,3);
+        Coordinates InitialCoordinates = new Coordinates(2, 3);
         InitialCoordinates = InitialCoordinates.newCoordinatesForStepValue(-1, 0);
         assertEquals("1 3", InitialCoordinates.toString());
     }
@@ -25,7 +25,7 @@ public class CoordinatesTest {
     @Test
     @DisplayName("YCoordinate value should be incremented by one")
     public void shouldYCoordinatedBeIncremented() {
-        Coordinates InitialCoordinates = new Coordinates(2,3);
+        Coordinates InitialCoordinates = new Coordinates(2, 3);
         InitialCoordinates = InitialCoordinates.newCoordinatesForStepValue(0, 1);
         assertEquals("2 4", InitialCoordinates.toString());
     }
@@ -33,7 +33,7 @@ public class CoordinatesTest {
     @Test
     @DisplayName("YCoordinate value should be decremented by one")
     public void shouldYCoordinatedBeDecremented() {
-        Coordinates InitialCoordinates = new Coordinates(2,3);
+        Coordinates InitialCoordinates = new Coordinates(2, 3);
         InitialCoordinates = InitialCoordinates.newCoordinatesForStepValue(0, -1);
         assertEquals("2 2", InitialCoordinates.toString());
     }

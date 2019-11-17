@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RightTest {
+public class RightCommandTest {
     @Test
     @DisplayName("Should the direction of Rover be East, when the direction is North and instruction to turn is right")
     void shouldTheRoverRotateToEastWhenNorth() throws RoverOutOfBoundException, RoverNotDeployedInPlateauException {

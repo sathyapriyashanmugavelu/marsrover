@@ -14,7 +14,7 @@ public class Coordinates {
     }
 
     public Coordinates newCoordinatesForStepValue(final int xCoordinateStepValue, final int yCoordinateStepValue) {
-        return new Coordinates(xCoordinate+xCoordinateStepValue, yCoordinate+yCoordinateStepValue);
+        return new Coordinates(xCoordinate + xCoordinateStepValue, yCoordinate + yCoordinateStepValue);
     }
 
     public boolean isCoordinatesWithinBounds(Coordinates plateauCoordinate) {

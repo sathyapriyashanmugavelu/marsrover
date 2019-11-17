@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MoveTest {
+public class MoveCommandTest {
     @Test
     @DisplayName("When the instruction is to MoveForward with the direction as N, then return the same direction and increment the y axis by 1")
     void shouldTheRoverMoveNorth() throws RoverNotDeployedInPlateauException, RoverOutOfBoundException {

@@ -47,6 +47,7 @@ public enum Direction {
     };
 
     public abstract Direction right();
+
     public abstract Direction left();
 
     private final int stepValueOnXAxis;
@@ -60,6 +61,7 @@ public enum Direction {
     public int stepValueForXAxis() {
         return this.stepValueOnXAxis;
     }
+
     public int stepValueForYAxis() {
         return this.stepValueOnYAxis;
     }

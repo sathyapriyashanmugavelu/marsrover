@@ -22,7 +22,7 @@ public class CommandParserTest {
     void shouldMapToRotateLeftCommandWhenL() {
         CommandParser parser = new CommandParser("L");
         List<ICommand> commands = parser.toCommands();
-        assertTrue(commands.get(0) instanceof Left);
+        assertTrue(commands.get(0) instanceof LeftCommand);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class CommandParserTest {
     void shouldMapToRotateRightCommandWhenR() {
         CommandParser parser = new CommandParser("R");
         List<ICommand> commands = parser.toCommands();
-        assertTrue(commands.get(0) instanceof Right);
+        assertTrue(commands.get(0) instanceof RightCommand);
     }
 
     @Test
@@ -38,7 +38,7 @@ public class CommandParserTest {
     void shouldMapToMoveCommandWhenM() {
         CommandParser parser = new CommandParser("M");
         List<ICommand> commands = parser.toCommands();
-        assertTrue(commands.get(0) instanceof Move);
+        assertTrue(commands.get(0) instanceof MoveCommand);
     }
 
     @Test
@@ -46,8 +46,8 @@ public class CommandParserTest {
     void shouldTheRoverBeMappedToMultiCommandInOrder() {
         CommandParser parser = new CommandParser("LMR");
         List<ICommand> commands = parser.toCommands();
-        assertTrue(commands.get(0) instanceof Left);
-        assertTrue(commands.get(1) instanceof Move);
-        assertTrue(commands.get(2) instanceof Right);
+        assertTrue(commands.get(0) instanceof LeftCommand);
+        assertTrue(commands.get(1) instanceof MoveCommand);
+        assertTrue(commands.get(2) instanceof RightCommand);
     }
 }

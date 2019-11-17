@@ -19,7 +19,7 @@ public class Rover {
 
     public void processInstruction(String instructionString) throws RoverOutOfBoundException {
         List<ICommand> roverCommands = new CommandParser(instructionString).toCommands();
-        for(ICommand command: roverCommands){
+        for (ICommand command : roverCommands) {
             command.execute(this);
         }
     }
@@ -32,11 +32,11 @@ public class Rover {
     }
 
     public void rotateLeft() {
-        this.direction=this.direction.left();
+        this.direction = this.direction.left();
     }
 
     public void rotateRight() {
-        this.direction=this.direction.right();
+        this.direction = this.direction.right();
     }
 
     public String finalPositionAndDirectionToString() {
