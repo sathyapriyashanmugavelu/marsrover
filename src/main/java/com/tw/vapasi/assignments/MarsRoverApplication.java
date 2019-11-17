@@ -1,4 +1,4 @@
-package com.tw.vapasi.assigments;
+package com.tw.vapasi.assignments;
 
 public class MarsRoverApplication {
     public static void main(String[] args) throws RoverNotDeployedInPlateauException, RoverOutOfBoundException {

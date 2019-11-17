@@ -1,4 +1,4 @@
-package com.tw.vapasi.assigments;
+package com.tw.vapasi.assignments;
 
 import java.util.ArrayList;
 import java.util.HashMap;

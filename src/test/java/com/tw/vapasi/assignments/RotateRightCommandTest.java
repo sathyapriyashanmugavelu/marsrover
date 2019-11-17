@@ -1,4 +1,4 @@
-package com.tw.vapasi.assigments;
+package com.tw.vapasi.assignments;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

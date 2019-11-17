@@ -1,4 +1,4 @@
-package com.tw.vapasi.assigments;
+package com.tw.vapasi.assignments;
 
 public class Plateau {
     public final Coordinates plateauCoordinates;

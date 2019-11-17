@@ -1,4 +1,4 @@
-package com.tw.vapasi.assigments;
+package com.tw.vapasi.assignments;
 
 import java.util.List;
 
@@ -39,14 +39,7 @@ public class Rover {
         this.direction=this.direction.right();
     }
 
-
-    public Direction direction() {
-        return direction;
-    }
-
     public String finalPositionAndDirectionToString() {
         return coordinates.toString() + " " + direction;
     }
-
-
 }

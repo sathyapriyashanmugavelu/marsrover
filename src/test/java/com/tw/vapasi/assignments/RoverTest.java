@@ -1,4 +1,4 @@
-package com.tw.vapasi.assigments;
+package com.tw.vapasi.assignments;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,7 +16,7 @@ public class RoverTest {
         Coordinates startingCoordinates = new Coordinates(3, 4);
         Rover rover = new Rover(plateau, startingCoordinates, Direction.N);
         rover.processInstruction("L");
-        assertEquals(Direction.W, rover.direction());
+        assertEquals("3 4 W", rover.finalPositionAndDirectionToString());
     }
 
     @Test
@@ -27,7 +27,7 @@ public class RoverTest {
         Coordinates startingCoordinates = new Coordinates(2, 2);
         Rover rover = new Rover(plateau, startingCoordinates, Direction.E);
         rover.processInstruction("L");
-        assertNotEquals(Direction.S, rover.direction());
+        assertNotEquals("2 2 S", rover.finalPositionAndDirectionToString());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class RoverTest {
         Coordinates startingCoordinates = new Coordinates(3, 4);
         Rover rover = new Rover(plateau, startingCoordinates, Direction.N);
         rover.processInstruction("R");
-        assertEquals(Direction.E, rover.direction());
+        assertEquals("3 4 E", rover.finalPositionAndDirectionToString());
     }
 
     @Test
@@ -49,7 +49,7 @@ public class RoverTest {
         Coordinates startingCoordinates = new Coordinates(2, 2);
         Rover rover = new Rover(plateau, startingCoordinates, Direction.E);
         rover.processInstruction("L");
-        assertNotEquals(Direction.S, rover.direction());
+        assertNotEquals("2 2 L", rover.finalPositionAndDirectionToString());
     }
 
     @Test
@@ -60,7 +60,7 @@ public class RoverTest {
         Coordinates startingCoordinates = new Coordinates(2, 2);
         Rover rover = new Rover(plateau, startingCoordinates, Direction.E);
         rover.processInstruction("M");
-        assertEquals(Direction.E, rover.direction());
+        assertEquals("3 2 E", rover.finalPositionAndDirectionToString());
     }
 
     @Test
@@ -71,7 +71,7 @@ public class RoverTest {
         Coordinates startingCoordinates = new Coordinates(2, 2);
         Rover rover = new Rover(plateau, startingCoordinates, Direction.N);
         rover.processInstruction("LML");
-        assertEquals(Direction.S, rover.direction());
+        assertEquals("1 2 S", rover.finalPositionAndDirectionToString());
     }
 
     @Test
