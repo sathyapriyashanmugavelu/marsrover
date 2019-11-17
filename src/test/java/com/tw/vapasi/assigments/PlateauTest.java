@@ -16,7 +16,7 @@ public class PlateauTest {
     }
 
     @Test
-    @DisplayName("Should the coordinates be out of the bounds when lower-left coordinates are (6,5) and upper right coordinates are (5,5) ")
+    @DisplayName("Should the coordinates be out of the bounds when x coordinate is out of bound ")
     void shouldTheCoordinatesBeOutOfBoundsWhenXCoordinateIsOutOfBound() {
         Coordinates initialCoordinates = new Coordinates(5, 5);
         Plateau plateauCoordinates = new Plateau(initialCoordinates);
@@ -34,7 +34,7 @@ public class PlateauTest {
     }
 
     @Test
-    @DisplayName("Should the coordinates be out of the bounds when lower-left coordinates are (4,6) and upper right coordinates are (5,5) ")
+    @DisplayName("Should the coordinates be out of the bounds when y coordinate is out of bound ")
     void shouldTheCoordinatesBeOutOfBoundsWhenYCoordinateIsOutOfBound() {
         Coordinates initialCoordinates = new Coordinates(5, 5);
         Plateau plateauCoordinates = new Plateau(initialCoordinates);
