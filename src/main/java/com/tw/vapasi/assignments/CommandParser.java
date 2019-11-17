@@ -13,9 +13,9 @@ public class CommandParser {
     }
 
     private static Map<Character, ICommand> commandMap = new HashMap<Character, ICommand>(){{
-        put('L', new RotateLeftCommand());
-        put('R', new RotateRightCommand());
-        put('M', new MoveCommand());
+        put('L', new Left());
+        put('R', new Right());
+        put('M', new Move());
 
     }};
 

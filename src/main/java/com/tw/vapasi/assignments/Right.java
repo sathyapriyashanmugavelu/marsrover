@@ -1,6 +1,6 @@
 package com.tw.vapasi.assignments;
 
-public class RotateRightCommand implements ICommand {
+public class Right implements ICommand {
     @Override
     public void execute(final Rover rover) {
         rover.rotateRight();
